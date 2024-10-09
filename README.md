@@ -21,10 +21,6 @@ Instead, we can flip this to "what is the time period, starting at X and up to Y
 
 ![Map query](map_query.png)
 
-## Deploy it yourself
-
-[Read the guide](https://www.tinybird.co/docs/guides/this-is-the-guide-slug) to deploy this demo application yourself.
-
 ## License
 
 This code is available under the MIT license. See the [LICENSE](./LICENSE.txt) file for more details.
