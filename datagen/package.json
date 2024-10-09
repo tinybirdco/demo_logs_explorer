@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@tinybirdco/mockingbird": "^1.4.0",
+    "@tinybirdco/mockingbird-cli": "^1.1.5",
+    "dotenv": "^16.3.1"
+  },
+  "type": "module"
+}

@@ -1,0 +1,17 @@
+NODE mv
+SQL >
+
+    SELECT
+        toStartOfFifteenMinutes(created_at) AS start_ts,
+        start_ts + toIntervalMinute(15) AS end_ts,
+        account_id,
+        countState() AS n_rows
+    FROM logs
+    GROUP BY
+        start_ts,
+        account_id
+
+TYPE materialized
+DATASOURCE mv_ts_range
+
+

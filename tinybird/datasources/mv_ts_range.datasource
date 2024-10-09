@@ -1,0 +1,10 @@
+
+SCHEMA >
+    `start_ts` DateTime,
+    `end_ts` DateTime,
+    `account_id` UUID,
+    `n_rows` AggregateFunction(count)
+
+ENGINE "AggregatingMergeTree"
+ENGINE_PARTITION_KEY "toYYYYMM(start_ts)"
+ENGINE_SORTING_KEY "account_id, start_ts"

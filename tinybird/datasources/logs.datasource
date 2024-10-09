@@ -1,0 +1,12 @@
+TOKEN "append_token" APPEND
+
+
+SCHEMA >
+    `created_at` DateTime `json:$.created_at`,
+    `id` UUID `json:$.id`,
+    `payload` String `json:$.payload`,
+    `account_id` UUID `json:$.account_id`
+
+ENGINE "MergeTree"
+ENGINE_PARTITION_KEY "toYear(created_at)"
+ENGINE_SORTING_KEY "account_id, created_at, payload"

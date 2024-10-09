@@ -1,0 +1,24 @@
+NODE endpoint
+DESCRIPTION >
+    Filter on a time range between X and Y, order by timestamp, limit to Z rows
+
+SQL >
+
+    %
+    SELECT created_at, id, payload
+    FROM logs
+    WHERE
+        account_id IN (
+            SELECT id
+            FROM accounts
+            WHERE id = {{ String(account_param, '3d823057-c324-448d-bce9-47e120c11928') }}
+        )
+        AND created_at BETWEEN (
+            {{ DateTime(start, '2024-03-08 00:00:00') }} - INTERVAL {{ UInt8(days_param, 30) }} DAY
+        )
+        AND {{ DateTime(start, '2024-03-08 00:00:00') }}
+    ORDER BY created_at DESC
+    LIMIT {{ Int32(page_size, 40) }}
+    OFFSET {{ Int32(page, 0) * Int32(page_size, 40) }}
+
+
